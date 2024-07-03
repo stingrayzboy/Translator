@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  libretranslate:
+    image: libretranslate/libretranslate
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  translator:
+    build: .
+    depends_on:
+      libretranslate:
+        condition: service_healthy
+    volumes:
+      - .:/usr/src/app/
+    environment:
+      - INPUT_FILE=/usr/src/app/locales/en/common.json
+      - OUTPUT_DIR=/usr/src/app/locales
+    command: ["python", "translate_json.py"]

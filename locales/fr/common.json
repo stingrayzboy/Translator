@@ -1,0 +1,10 @@
+{
+    "testing": {
+        "key1": {
+            "key2": "C'est génial !",
+            "key3": {
+                "key4": "Ce n'est pas du tout génial !"
+            }
+        }
+    }
+}
