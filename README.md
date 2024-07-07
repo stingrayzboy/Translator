@@ -12,7 +12,6 @@ Whatever translation you need you need to set a key value pair and run the appli
 
 Install Docker or Podman
 
-
 ### Docker
 
 Run command
